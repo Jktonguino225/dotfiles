@@ -56,12 +56,16 @@ tooltip label{
 #custom-light_dark,
 #window,
 #clock,
+#cpu,
+#disk,
+#memory,
 #battery,
 #pulseaudio,
 #workspaces,
 #tray,
 #custom-power_btn,
 #custom-lock_screen,
+
 #backlight {
     background: #e7e7ec;
     opacity: 0.8;
@@ -70,13 +74,13 @@ tooltip label{
 }
 
 /* close to left */
-#backlight, #custom-light_dark, #clock {
+#backlight, #custom-light_dark, #clock, #cpu {
     border-radius: 10px 0px 0px 10px;
     margin-left: 13px;
 }
 
 /*close to the right */
-#custom-power_btn, #custom-weather, #battery { 
+#custom-power_btn, #custom-weather, #battery, #disk { 
     border-radius: 0px 10px 10px 0px;
     margin-right: 13px;
 }
@@ -102,11 +106,11 @@ tooltip label{
     color: #f17d35;
 }
 
-#pulseaudio {
+#pulseaudio, #cpu, #disk {
     color: #407cdd;
 }
 
-#battery {
+#battery, #pulseaudio.microphone, #memory {
     color:  #33aa33;
     padding-left: 12px;
 }

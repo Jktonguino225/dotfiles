@@ -9,11 +9,15 @@
   "modules-left": [
       "clock",
       "custom/weather",
+      "cpu",
+      "memory",
+      "disk",
       "hyprland/workspaces"
   ],
   "modules-center": ["hyprland/window", "custom/updates"],
   "modules-right": [
       "backlight",
+      "pulseaudio#microphone",
       "pulseaudio",
       "battery",
       "tray",
@@ -58,7 +62,7 @@
   },
 
   "custom/light_dark": {
-    "format": "󰐾",
+    "format": "󰐾 ",
     "on-click": "~/.config/waybar/baraction light",
     "tooltip": false
   },
@@ -107,5 +111,43 @@
           "car": " ",
           "default": ["", "", ""]
       }
+  },
+
+
+
+  "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        "max-length": 10,
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+  },
+
+  "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "tooltip": true,
+        "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "Memory - {used:0.1f}GB used",
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "on-click": "pamixer --default-source -t",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    }
   }
 }
